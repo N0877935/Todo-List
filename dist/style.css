@@ -63,3 +63,18 @@ button:hover {
     display: flex;
     justify-content: center;
 }
+
+.popUpDiv {
+    border-style: solid;
+    padding: 50px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.description {
+    height: 100px;
+}
