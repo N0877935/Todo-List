@@ -20,6 +20,7 @@ body {
     height: 100vw;
     width: 100%;
     text-align: center;
+    
 }
 
 .tab-content {
@@ -28,6 +29,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 10px;
 }
 
 .sidebar {
@@ -63,18 +65,54 @@ button:hover {
     display: flex;
     justify-content: center;
 }
-
-.popUpDiv {
+.form-container {
     border-style: solid;
-    padding: 50px;
-}
-
-.form {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+
 }
 
-.description {
-    height: 100px;
+.form-container-show {
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    display: block;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+#add-task {
+    margin-top: 10px;
+    height: 40px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close {
+    margin-top: 10px;
+    height: 40px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 50%;
+    text-align: right;
+    width: 70px;
 }

@@ -1,4 +1,4 @@
-class createTask {
+class Task {
         constructor(title, description, dueDate, priority) {
             this.title = title;
             this.description = description;
@@ -11,4 +11,4 @@ class createTask {
         }
     }
     
-export default createTask;
+export default Task;

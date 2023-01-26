@@ -1,7 +1,7 @@
 import '../dist/style.css';
-import createTask from "./Functions/createTask";
+import Task from "./Functions/createTask";
 import loadPage from './Functions/loadPage';
-import {showTaskButton} from "./Functions/showTask";
+import {showTask, showTaskButton} from "./Functions/showTask";
 
 
 // index = inbox default project (first page that loads)
@@ -27,9 +27,11 @@ thisWeek.addEventListener('click', function(){
 });
 
 
-let newTask = new createTask("Dog", "Walk Dog", "25/01/2023", "high");
+let newTask = new Task("Dog", "Walk Dog", "25/01/2023", "high");
 
 console.log(newTask.getTask());
 
 let inboxTasks = [];
+
+
 

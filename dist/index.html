@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Todo List</h1>     
+        <h1>Todo List</h1>
     </div>
     <div class="main">
         <div class="sidebar">
@@ -23,8 +23,39 @@
         </div>
         <div class="tab-content">
             <h2 class="tab-title">Inbox</h1>
-            
-            
+            <div id="pop-up-form">
+                
+                <div class="form-container">
+                <button id="close">Close</button>
+                <h1>New Task</h1>
+                <form action="post">    
+                    <div>
+                        <label for="task-name">Name</label>
+                        <input type="text" name="task-name" id="task-name">
+                    </div>
+
+                    <div>
+                        <label for="task-description">Description</label>
+                        <input type="text" name="task-description" id="task-description">
+                    </div>
+
+                    <div>
+                        <label for="task-date">Due Date</label>
+                        <input type="date" name="task-date" id="task-date">
+                    </div>
+
+                    <div>
+                    <label for="task-priority">Priority</label>
+                        <select name="task-priority" id="task-priority">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </form>
+                <button id="add-task">Add Task</button>
+                </div>
+            </div> 
         </div>
     </div>
     <div class="footer">
