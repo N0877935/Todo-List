@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/Functions/addTask.js":
+/*!**********************************!*\
+  !*** ./src/Functions/addTask.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction addTask() {\n    const taskDiv = document.createElement('div');\n    taskDiv.setAttribute('id', 'task-div');\n\n    const titleLabel = document.createElement('label');\n    titleLabel.textContent = 'Title';\n    const taskTitle = document.createElement('input');\n    taskTitle.setAttribute('id', 'task-title');\n\n    const descLabel = document.createElement('label');\n    descLabel.textContent = 'Description';\n    const taskDesc = document.createElement('input');\n    taskDesc.setAttribute('id', 'task-desc');\n\n    const dateLabel = document.createElement('label');\n    dateLabel.textContent = 'Date';\n    const taskDate = document.createElement('input');\n    taskDate.setAttribute('id', 'task-date');\n\n    \n    const prioLabel = document.createElement('label');\n    prioLabel.textContent = 'Priority';\n    const taskPrio = document.createElement('select');\n    taskPrio.setAttribute('id', 'task-prio');\n    const priority = ['High', 'Medium', 'Low'];\n\n    for (let i = 0; i < priority.length; i++) {\n        const prio = priority[i];\n        var option = document.createElement('option');\n        option.textContent = prio;\n        taskPrio.append(option);\n    }\n\n    const submit = document.createElement('button');\n    submit.textContent = 'Submit Task';\n    submit.setAttribute('id', 'submitTask');\n    \n\n    taskDiv.append(titleLabel, taskTitle);\n    taskDiv.append(descLabel, taskDesc);\n    taskDiv.append(dateLabel, taskDate);\n    taskDiv.append(prioLabel, taskPrio);\n    taskDiv.append(submit);\n\n    return taskDiv;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://todo-list/./src/Functions/addTask.js?");
+
+/***/ }),
+
 /***/ "./src/Functions/pageLoader.js":
 /*!*************************************!*\
   !*** ./src/Functions/pageLoader.js ***!
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/Functions/task.js\");\n\n\nclass Project {\n    constructor(title) {\n        this.title = title;\n    }\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\n\n//# sourceURL=webpack://todo-list/./src/Functions/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/Functions/task.js\");\n\n\nclass Project {\n    constructor(title, task) {\n        this.title = title;\n        this.task = new _task__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n    }\n\n\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\n\n//# sourceURL=webpack://todo-list/./src/Functions/project.js?");
 
 /***/ }),
 
@@ -40,13 +50,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/Pages/inbox.js":
+/*!****************************!*\
+  !*** ./src/Pages/inbox.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _Functions_addTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Functions/addTask */ \"./src/Functions/addTask.js\");\n/* harmony import */ var _Functions_project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Functions/project */ \"./src/Functions/project.js\");\n/* harmony import */ var _Functions_task__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Functions/task */ \"./src/Functions/task.js\");\n\n\n\n\nfunction loadInbox(id, title) {\n\n    const inboxTitle = document.createElement('h1');\n    inboxTitle.setAttribute('id', id);\n    inboxTitle.textContent = title;\n\n    return inboxTitle;\n\n}\n\nfunction loadBtn(id, text) {\n    const taskBtn = document.createElement('button');\n    taskBtn.setAttribute('id', id);\n    taskBtn.textContent = text;\n\n    return taskBtn;\n}\n\nfunction newTask(project) {\n    const newTitle = document.getElementById('task-title');\n    const newDesc = document.getElementById('task-desc');\n    const newDate = document.getElementById('task-date');\n    const newPrio = document.getElementById('task-prio');\n\n    project.title = newTitle.value;\n    project.description = newDesc.value;\n    project.date = newDate.value;\n    project.priority = newPrio.value;\n\n    console.log(project)\n}\n\nfunction inbox() {\n    const tabContent = document.querySelector('.tab-content');\n    tabContent.textContent = \"\";\n\n    const inbox = new _Functions_project__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n    \n\n    const newTitle = loadInbox('title', 'Inbox');\n    const newBtn = loadBtn('task-button', 'Add Task');\n\n    const newTaskForm = (0,_Functions_addTask__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n    tabContent.appendChild(newTitle);\n    tabContent.appendChild(newBtn);\n    newBtn.addEventListener('click', () => {\n        tabContent.appendChild(newTaskForm);\n        const submit = document.getElementById('submitTask')\n        submit.addEventListener('click', () => {\n            newTask(inbox);\n        });\n    });\n\n    \n    \n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (inbox);\n\n//# sourceURL=webpack://todo-list/./src/Pages/inbox.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Functions_pageLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Functions/pageLoader */ \"./src/Functions/pageLoader.js\");\n\n\nload();\n\n\nfunction load() {\n    (0,_Functions_pageLoader__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n}\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Functions_pageLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Functions/pageLoader */ \"./src/Functions/pageLoader.js\");\n/* harmony import */ var _Pages_inbox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pages/inbox */ \"./src/Pages/inbox.js\");\n\n\n\nload();\n\n\nconst inboxBtn = document.getElementById('project');\ninboxBtn.addEventListener('click', _Pages_inbox__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\nfunction load() {\n    (0,_Functions_pageLoader__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n    (0,_Pages_inbox__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n}\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ })
 

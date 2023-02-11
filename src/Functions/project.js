@@ -1,9 +1,12 @@
 import Task from "./task";
 
 class Project {
-    constructor(title) {
+    constructor(title, task) {
         this.title = title;
+        this.task = new Task();
     }
+
+
 
 }
 

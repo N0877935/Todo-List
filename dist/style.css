@@ -51,11 +51,19 @@ body {
     align-items: center;
 }
 
+#project:hover{
+    background-color: #e0e0e0;
+    color: #303236;
+}
+
 #projects-title {
     margin: 10px;
 }
 
-#add-project {
+#add-project, #task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #303236;
     border-radius: 5px;
     height: 30px;
@@ -153,10 +161,24 @@ form {
     border-radius: 10px;
 }
 
-form div {
+#task-div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border: 2px solid #303236;
+    border-radius: 5px;
+    padding: 20px;
+    gap: 5px;
+}
+
+#task-div input, #task-div select, #task-div button {
+    border: 2px solid #303236;
+    border-radius: 5px;
+    height: 25px;
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -170,33 +192,4 @@ form div {
     align-items: center;
 }
 
-#close {
-    margin-top: 10px;
-    height: 40px;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 50%;
-    text-align: right;
-    width: 70px;
-}
 
-.newTask {
-    margin-top: 10px;
-    padding: 10px;
-    height: 50px;
-    width: 80%;
-    background-color: #303236;
-    color: white;
-    border-radius: 10px;
-    display: flex;
-    gap: 200px;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-}
-
-.remove{
-    color: white;
-}
