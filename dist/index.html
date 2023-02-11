@@ -15,38 +15,36 @@
     <div class="main">
         <div class="sidebar">
             <button id="inbox">Inbox</button>
-            <button id="today">Today</button>
-            <button id="week">This Week</button>
 
             <h2>Projects</h2>
             <button>Add Project</button>
         </div>
         <div class="tab-content">
-            <h2 class="tab-title">Inbox</h1>
+            <h2 id="tab-title">Inbox</h1>
             <div id="pop-up-form">
                 
                 <div class="form-container">
                 <button id="close">Close</button>
                 <h1>New Task</h1>
-                <form action="post">    
+                <form action="post" method="post">    
                     <div>
                         <label for="task-name">Name</label>
-                        <input type="text" name="task-name" id="task-name">
+                        <input type="text" name="task-name" id="task-name" required>
                     </div>
 
                     <div>
                         <label for="task-description">Description</label>
-                        <input type="text" name="task-description" id="task-description">
+                        <input type="text" name="task-description" id="task-description" required>
                     </div>
 
                     <div>
                         <label for="task-date">Due Date</label>
-                        <input type="date" name="task-date" id="task-date">
+                        <input type="date" name="task-date" id="task-date" required>
                     </div>
 
                     <div>
                     <label for="task-priority">Priority</label>
-                        <select name="task-priority" id="task-priority">
+                        <select name="task-priority" id="task-priority" required>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
                             <option value="low">Low</option>
@@ -62,5 +60,6 @@
         <p>Copyright © 2023 joefinlay</p>
     </div>
     <script src="main.js"></script>
+    <script> src="showTask.js"</script>
 </body>
 </html>
