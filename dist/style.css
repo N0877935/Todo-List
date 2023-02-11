@@ -39,6 +39,79 @@ body {
     width: 25%;
 }
 
+#project {
+    border: 2px solid #303236;
+    background-color: #303236;
+    color: white;
+    font-size: 2rem;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#project:hover{
+    background-color: #e0e0e0;
+    color: #303236;
+}
+
+#projects-title {
+    margin: 10px;
+}
+
+#add-project, #task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #303236;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 100%;
+}
+
+#projects-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+#buttonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+#projects-div input {
+    border: 2px solid #303236;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 100%;
+}
+
+.inputInvalid {
+    border: 2px solid #ff0800;
+}
+
+#projects-div button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    font-weight: 500;
+}
+
+#addBtn {
+    height: 30px;
+    border: 2px solid #07f50f;
+    
+}
+
+#cancelBtn {
+    height: 30px;
+    border: 2px solid #ff0800;
+}
+
 button {
     margin: 10px;
     display: flex;
@@ -88,10 +161,24 @@ form {
     border-radius: 10px;
 }
 
-form div {
+#task-div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border: 2px solid #303236;
+    border-radius: 5px;
+    padding: 20px;
+    gap: 5px;
+}
+
+#task-div input, #task-div select, #task-div button {
+    border: 2px solid #303236;
+    border-radius: 5px;
+    height: 25px;
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -105,14 +192,4 @@ form div {
     align-items: center;
 }
 
-#close {
-    margin-top: 10px;
-    height: 40px;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 50%;
-    text-align: right;
-    width: 70px;
-}
+
