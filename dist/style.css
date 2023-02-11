@@ -39,8 +39,11 @@ body {
     width: 25%;
 }
 
-#inbox {
+#project {
     border: 2px solid #303236;
+    background-color: #303236;
+    color: white;
+    font-size: 2rem;
     border-radius: 5px;
     height: 30px;
     font-size: 100%;
@@ -76,6 +79,10 @@ body {
     border-radius: 5px;
     height: 30px;
     font-size: 100%;
+}
+
+.inputInvalid {
+    border: 2px solid #ff0800;
 }
 
 #projects-div button{
