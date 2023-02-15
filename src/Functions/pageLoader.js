@@ -57,9 +57,7 @@ function pageLoader(){
                 buttonDiv.style.display = 'none';
                 addProject.style.display = 'block';
             }
-        })
-
-        
+        });
 
         const cancelBtn = document.createElement('button');
         cancelBtn.textContent = 'Cancel';
