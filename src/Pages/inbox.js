@@ -1,6 +1,6 @@
 import addTask from "../Functions/addTask";
 import Project from "../Functions/project";
-import Task from "../Functions/task";
+
 
 function loadInbox(id, title) {
 
@@ -25,13 +25,33 @@ function newTask(project) {
     const newDesc = document.getElementById('task-desc');
     const newDate = document.getElementById('task-date');
     const newPrio = document.getElementById('task-prio');
+    const addToContent = document.querySelector('.tab-content');
+    const taskDiv = document.getElementById('task-div');
 
-    project.title = newTitle.value;
-    project.description = newDesc.value;
-    project.date = newDate.value;
-    project.priority = newPrio.value;
+    if(newTitle.value != '' && newDesc.value != '' && newDate.value != '') {
+        project.taskInProject(newTitle.value, newDesc.value, newDate.value, newPrio.value);
+        showTasks(newTitle.value, addToContent);
+        console.log(project);
+    } else {
+        alert('Please enter a value');
+    }
 
-    console.log(project)
+
+}
+
+function showTasks(title, container) {
+    
+        const newTile = document.createElement('div');
+        newTile.classList.add('tile-style');
+
+        const tileTitle = document.createElement('h2');
+        tileTitle.textContent = title;
+
+        const tileCheck = document.createElement('input');
+
+        newTile.append(tileTitle, tileCheck);
+        container.appendChild(newTile);
+
 }
 
 function inbox() {
@@ -39,8 +59,8 @@ function inbox() {
     tabContent.textContent = "";
 
     const inbox = new Project();
+    inbox.title = 'Inbox';
     
-
     const newTitle = loadInbox('title', 'Inbox');
     const newBtn = loadBtn('task-button', 'Add Task');
 
@@ -50,14 +70,14 @@ function inbox() {
     tabContent.appendChild(newBtn);
     newBtn.addEventListener('click', () => {
         tabContent.appendChild(newTaskForm);
+    
         const submit = document.getElementById('submitTask')
         submit.addEventListener('click', () => {
             newTask(inbox);
+            console.log('exe');
         });
     });
-
-    
-    
 }
+
 
 export default inbox;
