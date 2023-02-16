@@ -27,6 +27,7 @@ function loadButton(id, text) {
         return taskBtn;
 }
 
+
 function newProject(projectName) {
 
     const newProject = new Project(projectName);
@@ -59,37 +60,109 @@ function newTask(project) {
 
     if(newTitle.value != '' && newDesc.value != '' && newDate.value != '') {
         project.taskInProject(newTitle.value, newDesc.value, newDate.value, newPrio.value);
-        createTask();
+        createTask(newTitle.value, newDate.value, newPrio.value);
     } else {
         alert('Please enter a value')
     }
 }
 
-function createTask() {
-    
+function createTask(tileTitle, tileDate, tilePriority) {
+
+    const tabContent = document.querySelector('.tab-content');
+
+    const newTile = document.createElement('div');
+    newTile.setAttribute('id', 'tile-style');
+
+    const newTitle = document.createElement('h1');
+    newTitle.textContent = tileTitle;
+
+    const newDate = document.createElement('h1');
+    newDate.textContent = tileDate;
+
+    if (tilePriority == 'High') {
+        newTile.style.border = '2px solid #ff0800';
+    } else if (tilePriority == 'Medium') {
+        newTile.style.border = '2px solid #fc9003';
+    } else {
+        newTile.style.border = '2px solid #07f50f';
+    }
+
+
+    newTile.appendChild(newTitle);
+    newTile.appendChild(newDate);
+    tabContent.appendChild(newTile);
+
+    // newTile.addEventListener('click', expandTile);
+
 }
 
-function showTasks(project) {
+function loadTasks(project) {
     
     const tabContent = document.querySelector('.tab-content');
 
     for(let i = 0; i < project.tasks.length; i++) {
 
-        console.log(project.tasks[i].title);
-
         const newTile = document.createElement('div');
-        newTile.classList.add('tile-style');
+        newTile.setAttribute('id', 'tile-style');
+
+        const expand = document.createElement('button');
+        expand.textContent = 'Show Details';
+        expand.setAttribute('id', 'expand');
+
+        const deleteTask = document.createElement('button');
+        deleteTask.textContent = 'Finished';
+        deleteTask.setAttribute('id', 'delete');
 
         const newTitle = document.createElement('h1');
-        newTitle.textContent = project.tasks[i].title;
+        newTitle.textContent = `Title: ${project.tasks[i].title}`;
 
+        const newDate = document.createElement('h1');
+        newDate.textContent = `Due Date: ${project.tasks[i].dueDate}`;
+
+        if(project.tasks[i].priority == 'High') {
+            newTile.style.border = '2px solid #ff0800'
+        } else if (project.tasks[i].priority == 'Medium') {
+            newTile.style.border = '2px solid #fc9003';
+        } else {
+            newTile.style.border = '2px solid #07f50f';
+        }
+    
+
+        newTile.appendChild(expand);    
         newTile.appendChild(newTitle);
+        newTile.appendChild(newDate);
+        newTile.append(deleteTask);
         tabContent.appendChild(newTile);
 
+        expand.addEventListener('click', () => {
+            newTile.style.height = '170px';
+            newTile.style.display = 'flex';
+            newTile.style.flexDirection = 'column';
+            newTile.style.fontSize = '0.5rem';
+            newTile.style.gap = '2px';
+            expand.style.display = 'none';
+            deleteTask.style.display = 'none';
+
+            const newDesc = document.createElement('h1');
+            newDesc.textContent = `Description: ${project.tasks[i].description}`;
+
+            const newPrio = document.createElement('h1');
+            newPrio.textContent = `Priority: ${project.tasks[i].priority}`;
+
+            newTile.appendChild(newDesc);
+            newTile.appendChild(newPrio);
+
+            
+
+
+        });
     }
+
+    
 
 
 }
+
 
 
 function pageLoader(el, newTitle){
@@ -112,13 +185,14 @@ function pageLoader(el, newTitle){
         const submit = document.getElementById('submitTask');
         submit.addEventListener('click', () => {
             newTask(el);
+            newTaskForm.classList.add('hide');
         })
     });
 
     titleContent.appendChild(newContent);
 
     if(el != undefined) {
-        showTasks(el);
+        loadTasks(el);
         titleContent.appendChild(newBtn);
     }
     
