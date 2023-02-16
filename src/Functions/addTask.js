@@ -2,15 +2,6 @@ function addTask() {
     const taskDiv = document.createElement('div');
     taskDiv.setAttribute('id', 'task-div');
 
-    const close = document.createElement('button');
-    close.setAttribute('id', 'closeBtn');
-    close.textContent = 'X';
-    close.style.border = '2px solid #ff0800';
-    close.style.borderRadius = '10px';
-    close.style.position = 'absolute'
-    close.style.top = '200px'
-    close.style.right = '600px'
-
     const titleLabel = document.createElement('label');
     titleLabel.textContent = 'Title';
     const taskTitle = document.createElement('input');
@@ -28,7 +19,6 @@ function addTask() {
     taskDate.setAttribute('id', 'task-date');
     taskDate.setAttribute('type', 'date');
 
-    
     const prioLabel = document.createElement('label');
     prioLabel.textContent = 'Priority';
     const taskPrio = document.createElement('select');
@@ -45,8 +35,7 @@ function addTask() {
     const submit = document.createElement('button');
     submit.textContent = 'Submit Task';
     submit.setAttribute('id', 'submitTask');
-    
-    taskDiv.append(close);
+
     taskDiv.append(titleLabel, taskTitle);
     taskDiv.append(descLabel, taskDesc);
     taskDiv.append(dateLabel, taskDate);

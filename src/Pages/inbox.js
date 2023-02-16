@@ -1,6 +1,6 @@
 import addTask from "../Functions/addTask";
 import Project from "../Functions/project";
-import Task from "../Functions/task";
+
 
 function loadInbox(id, title) {
 
@@ -25,9 +25,8 @@ function newTask(project) {
     const newDesc = document.getElementById('task-desc');
     const newDate = document.getElementById('task-date');
     const newPrio = document.getElementById('task-prio');
-    const loadBtn = document.getElementById('task-button');
-    const taskDiv = document.getElementById('task-div');
     const addToContent = document.querySelector('.tab-content');
+    const taskDiv = document.getElementById('task-div');
 
     if(newTitle.value != '' && newDesc.value != '' && newDate.value != '') {
         project.taskInProject(newTitle.value, newDesc.value, newDate.value, newPrio.value);
@@ -36,6 +35,8 @@ function newTask(project) {
     } else {
         alert('Please enter a value');
     }
+
+
 }
 
 function showTasks(title, container) {
@@ -60,7 +61,6 @@ function inbox() {
     const inbox = new Project();
     inbox.title = 'Inbox';
     
-
     const newTitle = loadInbox('title', 'Inbox');
     const newBtn = loadBtn('task-button', 'Add Task');
 
@@ -70,17 +70,14 @@ function inbox() {
     tabContent.appendChild(newBtn);
     newBtn.addEventListener('click', () => {
         tabContent.appendChild(newTaskForm);
-        newBtn.style.display = 'none';
-
+    
         const submit = document.getElementById('submitTask')
         submit.addEventListener('click', () => {
             newTask(inbox);
-            
+            console.log('exe');
         });
     });
-
-    
-    
 }
+
 
 export default inbox;

@@ -6,13 +6,10 @@ body {
     flex-direction: column;
 }
 
-.close {
-    height: 100px;
-}
-
 .header {
     background-color: #303236;
     color: white;
+    display: flex;
 }
 
 .header h1 {
@@ -32,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    gap: 10px;
     align-items: center;
     border-radius: 10px;
 }
@@ -43,7 +41,7 @@ body {
     width: 25%;
 }
 
-#project {
+#project, #inbox {
     border: 2px solid #303236;
     background-color: #303236;
     color: white;
@@ -53,9 +51,12 @@ body {
     font-size: 100%;
     display: flex;
     align-items: center;
+    width: 80%;
+    margin-top: 5px;
+    
 }
 
-#project:hover{
+#project:hover, #inbox:hover{
     background-color: #e0e0e0;
     color: #303236;
 }
@@ -142,7 +143,8 @@ button:hover {
     display: flex;
     justify-content: center;
 }
-.form-container {
+
+#form-container {
     border-style: solid;
     display: flex;
     flex-direction: column;
@@ -196,8 +198,31 @@ form {
     align-items: center;
 }
 
-.tileStyle {
+.tile-style {
+    margin-top: 10px;
     background-color: #303236;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
     height: 50px;
     width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    color: 2px solid #ff0800;
+}
+
+#pop-up-form {
+    height: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 20px;
+    gap: 5px;
+    text-align: center;
 }
