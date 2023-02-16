@@ -39,11 +39,6 @@ function newProject(projectName) {
     projectsDiv.appendChild(projToDOM);
     domArray.push(projToDOM);        
 
-//    for (let i = 0; i < domArray.length; i++) {
-//     domArray[i].addEventListener('click', () => {
-//         pageLoader(projectsArray[i], projectsArray[i].title);
-//     })
-//    }
 
 document.querySelector('body').addEventListener('click', function(event) {
     if(event.target.tagName.toLowerCase() === projectName.toLowerCase()) {
@@ -64,9 +59,14 @@ function newTask(project) {
 
     if(newTitle.value != '' && newDesc.value != '' && newDate.value != '') {
         project.taskInProject(newTitle.value, newDesc.value, newDate.value, newPrio.value);
+        createTask();
     } else {
         alert('Please enter a value')
     }
+}
+
+function createTask() {
+    
 }
 
 function showTasks(project) {
@@ -95,17 +95,15 @@ function showTasks(project) {
 function pageLoader(el, newTitle){
 
 
-    const headerContent = document.querySelector('.header');
+    const titleContent = document.querySelector('.title-container');
+    titleContent.textContent = "";
+
     const tabContent = document.querySelector('.tab-content');
     tabContent.textContent = "";
 
-    if(el != undefined) {
-        showTasks(el);
-    }
-    
-
     const projectsDiv = document.getElementById('projects-div')
     const newContent = pageLoaderDiv('newDiv', newTitle);
+   
     const newBtn = loadButton('task-button', 'Add Task');
 
     const newTaskForm = addTask();
@@ -117,8 +115,13 @@ function pageLoader(el, newTitle){
         })
     });
 
-    tabContent.appendChild(newContent);
-    tabContent.appendChild(newBtn);
+    titleContent.appendChild(newContent);
+
+    if(el != undefined) {
+        showTasks(el);
+        titleContent.appendChild(newBtn);
+    }
+    
 
     
 
