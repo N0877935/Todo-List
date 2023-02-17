@@ -71,6 +71,10 @@ body {
     
 }
 
+#project {
+    margin-bottom: 10px;
+}
+
 #project:hover, #inbox:hover{
     background-color: #e0e0e0;
     color: #303236;

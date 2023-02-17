@@ -208,12 +208,11 @@ function pageLoader(el, newTitle){
     }
     
 
-    
+}
 
-    const addProject = document.getElementById('add-project');
+function inputLoader() {
 
-    addProject.addEventListener('click', () => {
-        addProject.style.display = 'none';
+        const newDiv = document.createElement('newDiv');
 
         const inputField = document.createElement('input');
 
@@ -231,31 +230,31 @@ function pageLoader(el, newTitle){
         buttonDiv.appendChild(addBtn);
         buttonDiv.appendChild(cancelBtn);
 
-        projectsDiv.appendChild(inputField);
-        projectsDiv.appendChild(buttonDiv);
+        newDiv.appendChild(inputField);
+        newDiv.appendChild(buttonDiv);
+
+    const addProject = document.getElementById('add-project');
 
         addBtn.addEventListener('click', () => {
             if(inputField.value == "") {
                 alert('Value Missing!');
             } else {
                 newProject(inputField.value);
-                inputField.style.display = 'none';
-                buttonDiv.style.display = 'none';
-                addProject.style.display = 'block';
-
+                newDiv.style.display = 'none';
+                addProject.style.display = 'block'
             }
         });
 
         cancelBtn.addEventListener('click', () => {
             inputField.style.display = 'none';
             buttonDiv.style.display = 'none';
-            addProject.style.display = 'block';
-    
+            
         })
+
+        return newDiv;
         
-    });
 
 }
 
 
-export default pageLoader;
+export { pageLoader, inputLoader}
