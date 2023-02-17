@@ -152,15 +152,26 @@ function loadTasks(project) {
             newTile.appendChild(newDesc);
             newTile.appendChild(newPrio);
 
-            
+        });
 
+        deleteTask.addEventListener('click', () => {
+            removeTask(project.tasks, i, newTile);
 
         });
+
+            }
+
+}
+
+function removeTask(array, id, tile) {
+    const taskWithIdIndex = array.findIndex((obj) => obj._id === id);
+
+    if(taskWithIdIndex > -1) {
+        array.splice(taskWithIdIndex, 1);
+        tile.remove()
     }
 
-    
-
-
+    return array;
 }
 
 
